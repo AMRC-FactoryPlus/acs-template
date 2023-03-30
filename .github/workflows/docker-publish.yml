@@ -6,8 +6,11 @@ name: Docker
 # documentation.
 
 on:
-  push:
-    tags: [ 'v*.*.*' ]
+  release:
+    types: [ published ]
+    # Trigger only when a release with tag v*.*.* is published
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 env:
   REGISTRY: ghcr.io
